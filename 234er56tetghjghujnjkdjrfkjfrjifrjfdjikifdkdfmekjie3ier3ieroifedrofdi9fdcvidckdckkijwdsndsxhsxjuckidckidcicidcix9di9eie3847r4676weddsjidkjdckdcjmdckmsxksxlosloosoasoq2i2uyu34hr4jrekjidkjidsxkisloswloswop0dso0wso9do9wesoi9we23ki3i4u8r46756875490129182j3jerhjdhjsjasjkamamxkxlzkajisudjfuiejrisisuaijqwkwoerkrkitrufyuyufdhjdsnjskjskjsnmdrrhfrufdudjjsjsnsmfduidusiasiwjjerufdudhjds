@@ -1,1 +1,1098 @@
 
+local COC = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Luxware-UI-Library/main/Source.lua"))()
+
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/spotify"))()
+
+local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Thank you for choosing gamesense.lua, enjoy your exploiting expirience!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+
+
+local Gamesense = COC.CreateWindow("gamesense.lua", 7273936214)
+
+local info = Gamesense:Tab("Info", 10528348112)
+local b = Gamesense:Tab("Bypasses", 610882048)
+local s = Gamesense:Tab("Scripts", 7214278915)
+local e = Gamesense:Tab("Exclusive", 7258918532)
+local h = Gamesense:Tab("Hubs")
+local c = Gamesense:Tab("Credits", 11693308551)
+
+local retard = info:Section("Info")
+retard:Label("Welcome back, Unverified!")
+retard:Label("Your UID is 1")
+retard:Label("Your rank is Beta,Owner")
+
+local funny = b:Section("Netless.")
+
+funny:Button("V1", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/idk-a-netless-pack/main/Netless%20V1",true))()
+end)
+
+funny:Button("V2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/idk-a-netless-pack/main/Netless%20V2",true))()
+end)
+
+funny:Button("V3", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/idk-a-netless-pack/main/Netless%20V3",true))()
+end)
+
+
+local harmful = b:Section("Reanimations")
+
+harmful:Button("Mizt's Fling", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Reanimation/Mizt%20Flings.lua",true))()
+end)
+
+harmful:Button("Mizt's Perma Death", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Reanimation/Mizt%20Perma%20Death.lua",true))()
+end)
+
+harmful:Button("Mizt's Normal", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Reanimation/Mizt%20Reanimation.lua",true))()
+end)
+
+local lmao = b:Section("Anticheat Bypasses.")
+
+lmao:Button("Hooktamethod V1", function()
+    local eventbypass
+
+    eventbypass = hookmetamethod(game, "__namecall", function(self, ...)
+        local method = getnamecallmethod()
+        local args = {...}
+    
+        if not checkcaller() and self.Name == "Anti_Cheat_Remote" and method == "FireServer" then
+            print("Anti Cheat remote is disabled(if there's only just it, if there's another one then this will only help it bypasses). Bypass made by Digitality")
+            return wait(9e9); -- do nothing if called
+        end
+    
+        return eventbypass(self, ...)
+    end)
+end)
+
+lmao:Button("Hookfunction V1", function()
+    for a,b in pairs(getgc()) do 
+        if typeof(b) == 'function' then 
+            if debug.getinfo(b).name == 'kick' then 
+                hookfunction(debug.getinfo(b).func, function()
+                    print('bozo tried to kick ur ass')
+                end)
+            end
+        end 
+    end 
+    
+    print("monkey ac got disabled - Unverified")
+end)
+
+lmao:Button("Hookfunction V2", function()
+    local function DisableSignal(signal, name)
+        local successes = true
+        for i, connection in next, getconnections(signal) do
+            local success, err = pcall(connection.Disable)
+            if success then
+                print('successfully disconnected ' .. name .. '\'s #' .. tostring(i) .. ' connection')
+            else
+                if err then
+                    print('failed to disconnect ' .. name .. '\'s # ' .. tostring(i) .. 'connection due to ' .. err)
+                end
+                successes = false
+            end
+        end
+        return successes
+    end
+    
+    local localscript = game:GetService'Players'.LocalPlayer.PlayerScripts.LocalScript
+    local localscript2 = game:GetService'Players'.LocalPlayer.PlayerScripts.LocalScript2
+    
+    local localscriptSignal = localscript.Changed
+    local localscript2Signal = localscript2.Changed
+    
+    if DisableSignal(localscriptSignal, 'localscript') then
+        localscript:Destroy()
+    end
+    if DisableSignal(localscript2Signal, 'localscript2') then
+        localscript2:Destroy()
+    end
+    print("bypass made by Unverified")
+end)
+
+lmao:Button("Hookfunction V3", function()
+    local playerscripts = game:GetService'Players'.LocalPlayer.PlayerScripts
+
+    local script1 = playerscripts.LocalScript
+    local script2 = playerscripts.LocalScript2
+    
+    local script1signal = script1.Changed
+    local script2signal = script2.Changed
+
+    local reg = getreg()
+    
+    for i, connection in next, getconnections(script1signal) do
+        connection:Disable()
+    end
+    for i, connection in next, getconnections(script2signal) do
+        connection:Disable()
+    end
+    
+    script1:Destroy()
+    script2:Destroy()
+
+    for i, Function in next, reg do
+        if type(Function) == 'function' then
+            local info = getinfo(Function)
+            
+            if info.name == 'kick' then
+                if (hookfunction(info.func, function(...)end)) then
+                    print("hooked up kick function")
+                else
+                    print("this is a tragic, did not hooked kick so the whole shit failed hahaha")
+                end
+            end
+        end
+    end
+    print("Bypass made by Digitality.")
+end)
+
+
+lmao:Button("Hookfunction V4", function()
+    local a
+
+    for i,v in next, getloadedmodules() do
+       if v.Parent == nil and v.Name ~= 'Client' then
+          a = require(v)
+       end
+    end
+    
+    hookfunction(a, function(...)
+       
+    end)
+
+    print("bypassed by Unverified.")
+end)
+
+lmao:Button("Namecall Hook V1", function()
+    local rm = getrawmetatable(game)
+    local caller = checkcaller or is_protosmasher_caller
+    local rindex = rm.__index
+    local nindex = rm.__newindex
+    local ncall = rm.__namecall
+    setreadonly(rm, false)
+    
+    rm.__newindex = newcclosure(function(self, Meme, Val)
+       if not caller() then
+       if tostring(self) == "HumanoidRootPart" or tostring(self) == "Torso" then
+           if Meme == "CFrame" then
+               return true
+           end
+       end -- NoClip bypass
+    end
+    return nindex(self, Meme, Val)
+    end)
+    
+    rm.__namecall = newcclosure(function(self, ...)
+       local Method = getnamecallmethod()
+       local Beans = {...}
+       
+       if Method == "FireServer" and Beans[1] == "WalkSpeed" then
+           return nil
+       end 
+       if Method == "FireServer" and Beans[1] == "JumpPower" then
+           return nil
+       end
+       if Method == "FireServer" and Beans[1] == "HipHeight" then
+           return nil
+       end
+       return ncall(self, ...)
+    end)
+    setreadonly(rm, true)
+
+    print("this fucking bypass was made by Unverified")
+end)
+
+lmao:Button("Namecall Hook Fly Disabler V2", function()
+    local rm = getrawmetatable(game) or debug.getrawmetatable(game) or getmetatable(game);
+    if setreadonly then setreadonly(rm, false) else make_writeable(rm, true) end
+    local caller = checkcaller or is_protosmasher_caller
+    local ncall = rm.__namecall
+    
+    rm.__namecall = newcclosure(function(self, ...)
+        if caller() then return ncall(self, ...) end
+        local Args, Method = {...}, getnamecallmethod() or get_namecall_method();
+        if Method == "FireServer" and Args[1] == "WalkSpeed" or Args[1] == "JumpPower" or Args[1] == "HipHeight" then 
+            return nil 
+        end
+        if Method == "FireServer" and tostring(self) == "Input" then 
+            if Args[1] == "bv" or Args[1] == "hb" or Args[1] == "ws" then 
+                return wait(9e9)
+            end
+        end
+        return ncall(self, unpack(Args))
+    end)
+    if setreadonly then setreadonly(rm, true) else make_writeable(rm, false) end
+
+    print("this fucking bypass was made by Unverified")
+end)
+
+lmao:Button("Hooktamethod V1", function()
+    repeat
+        task.wait()
+    until game:IsLoaded()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/ok'))()
+    
+    local Disables = {
+        game:GetService("Players").LocalPlayer.Idled,
+        game:GetService("ScriptContext").Error,
+        game:GetService("LogService").MessageOut
+    }
+    
+    local Nos = {
+        "PreloadAsync",
+        "Kick",
+        "kick",
+        "xpcall",
+        "gcinfo",
+        "collectgarbage",
+    }
+    
+    local Yes = {
+        game:GetService("Players").LocalPlayer,
+        game:GetService("CoreGui"),
+    }
+    
+    for i, v in pairs(Disables) do
+        for i, v in pairs(getconnections(v)) do
+            v:Disable()
+        end
+    end
+    
+    local OldNameCall = nil
+    OldNameCall =
+        hookmetamethod(
+        game,
+        "__namecall",
+        newcclosure(
+            function(self, ...)
+                local A = {...}
+    
+                if table.find(Nos, getnamecallmethod()) and table.find(Yes, self)   then
+                    return nil or wait(math.huge)
+                end
+                if getnamecallmethod()=="FindService" and self.Name == "VirtualUser" and self.Name == "VirtualInputManager" then
+                    return 
+                end
+                if typeof(A) ~= "Instance" then
+                    return OldNameCall(self, ...)
+                end
+                return OldNameCall(unpack(A), self, ...)
+            end
+        )
+    )
+    
+    if setfflag then
+        setfflag("HumanoidParallelRemoveNoPhysics", "False")
+        setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+    end
+    if setfpscap then
+        setfpscap(100)
+    end
+    
+    game:GetService("ScriptContext"):SetTimeout(0.5)
+
+    print("this fucking bypass was made by Unverified")
+end)
+
+lmao:Button("Hooktamethod V1", function()
+    local Namecall
+    Namecall = hookmetamethod(game, '__namecall', function(self, ...)
+       local Caller = tostring(getcallingscript())
+       local Method = getnamecallmethod()
+       
+       if Caller == 'ClientMover' and Method == 'GetService' then
+           return
+       end
+       
+       return Namecall(self, ...)
+    end)
+end)
+
+lmao:Button("Crystal and Adonis Disabler(thanks Iris)", function()
+    getgenv().BypassSettings = {
+        ["Crystal AntiCheat"] = true,
+        ["Adonis"] = true,
+     
+        ["Anti-Obfuscated Scripts"] = true,-- CANNOT BE ENABLED WITH CRYSTAL This will block any obfuscated script on the client from running (Not executed by your exploit thought)
+        ["Random"] = true, -- Will disallow scripts calling, GetPropertyChanged signal on WalkSpeed, JumpPower, Gravity, Health, LogService
+     
+        ["Enable Kill Logs"] = true, -- Say if you want to get told what's bypassed
+     }
+     
+     loadstring(game:HttpGet("https://irisapp.ca/TheGoodSucc/iAntiCheat.lua"))()
+end)
+
+local monkey = b:Section("FE Disablers")
+
+monkey:Button("Harked V2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/harked%20v2",true))()
+end)
+
+monkey:Button("Project Ligma", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/project%20ligma",true))()
+end)
+
+monkey:Button("Dorked V2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/dorked%20v2",true))()
+end)
+
+monkey:Button("Project Stigma Ultimate", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/project%20stigma%20ultigay",true))()
+end)
+
+monkey:Button("T0PK3K 4.0", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/WPRX0eY4",true))()
+end)
+
+monkey:Button("T0PK3K 3.0", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/SikGfE9u",true))()
+end)
+
+monkey:Button("Elysian", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/elysian%20real",true))()
+end)
+
+monkey:Button("Ro-xploit V6", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/umba%20gumba",true))()
+end)
+
+local trolling = b:Section("Disablers.")
+
+trolling:Button("C0F Audio Update Disabler", function()
+    loadstring(game:HttpGet('https://bit.ly/3TcD7sQ'))() 	
+end)
+
+trolling:Button("C0F Chat Logger Disabler", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/katrina367/ScriptBlox-Projects/main/Anti%20Chat%20Banner'))() 
+end)
+
+trolling:Button("C03 StealFunction Disabler", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/antisteal/antisteal-main/master/Anti-Steal.lua",true))()
+end)
+
+trolling:Button("C05 and C0F TimePosition Setter Disabler", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/antisteal/antisteal-main/master/Anti-Steal.lua",true))()
+end)
+
+trolling:Button("C03 Screenshot Report Disabler", function()
+	setfflag("AbuseReportScreenshotPercentage", 0)
+
+
+	setfflag("AbuseReportScreenshot","False")
+end)
+
+local xbnt = s:Section("Hats.")
+
+xbnt:Button("Sin Dragon", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(5).lua"))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Le Rogue Cross Body(1.0 and 5.0), Vans Umbrella!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Ghast", function()
+    loadstring(game:HttpGet('https://pastefy.ga/zFn0z6VV/raw'))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Roblox GIRL Hair, Chestnut Bun, Pal Hair, Lavender Updo, Vans Umbrella!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Space Jetpack", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/ahsdsdiahdiahdhasidhasifdhsd'))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Blue Flame Robo Samurai and Hyperspace Jetpack!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Hogrider", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Pig.txt'))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Red Roblox Cap, Roblox R Baseball Cap, Jurassic World Cap, Classic PC Hat, The Encierro Cap, Golden Headphones KSI, Ice Brain, Nike Shoebox Costume!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Big Fat Nigga Boy", function()
+    loadstring(game:HttpGet('https://paste.ee/r/gQOXW', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Nike Shoebox Costume!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Dinosaur", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/ok', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Blonde Spiked Hair, Brown Hair, Pal Hair, Lavender Updo, Chestnut Bun, Roblox GIRL Hair, Nike Shoebox!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Hoverboard", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/hoverboard', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Fan Hand Sign Why Dont We WDW, Blue Flame Robo Samurai!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Gaming Laptop", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/jashdsghfghaifsgdfyugsdfijsopfdjhsfsdfjfhsd', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Fan Hand Sign Why Dont We WDW, Blue Flame Robo Samurai!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Gaming Console", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/harmful%20nigga', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Blonde Spiked Hair, Stylish Aviator, Fan Hand Sign, Chestnut Bun, Roblox Girl Hair, Orange Shades, Vans Umbrella, Nike Shoebox, Classic PC Hat!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Unverified's Giant Bodyguard", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/jfdahsdajsd9ajsdi9jiefjahsfkas90ufd87ayhr89ujsd9fh8adsjf90ajsufr87waya89ujrhrf8adshf9sadjfahsfdiasndfgadhsfi9ajsfhwafasd', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Nike Shoebox, Vans Umbrella, Lavender Updo, Roblox Girl Hair, Chestnut Bun, Pal Hair!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Unverified's Glock-18", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/bdsfhahsfh38yr2r899us9u893982u492u9rwe9jsoifishdf9ajsf90ajsf9w9jf93392ue1-02312u489u12894h14h29u4982uusfhdsufe89ur93ur89werf90ajdasd', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Pal Hair, Roblox Girl Hair, Vans Umbrella!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Big Box", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/sfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfsdfsdfdsfsdfsdfdsfdsfdsfdsfsfsfsdfdsfdsfsdfsdfsdfsdfsfdsfdfsfdsfdsfdsfsdfsdfdsfdsfsdfdsfdsffsdfsdfdsfdsfdsfdsfdsfdsfsdfsdfdsfdsfdsfdsfdsfsdfdsfsdfsdfdsfdsfdsfsdfdsfdsfdsfdsffsdfsdfsfs', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Nike Shoebox, Happy New Year Ox, Nebula Blade, Vector Arrow, Robox, Pal Hair!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Thor Hammer", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/hsfijadsoi9fhwasfhuu8wae8fhwa9eufr9waijrw89ru9w23ur90weur89sudf90yudsfd8uwe89ru89weutr89wut90wuf8dshf8', true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Nike Shoebox, Happy New Year Ox, Nebula Blade, Vector Arrow, Ice Brain, Spider Cola, The Bird Says, Happy New Year Rat!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Bike", function()
+    
+loadstring(game:HttpGet(('https://pastefy.ga/6SiK0qV3/raw'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : https://pastebin.com/raw/aX8J7W82!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Minecraft Pickaxe", function()
+    
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/dmusuhjdaihduahsdihasidhwq89ry8y89u98fus9dfus9f9dsfdsjfizxcizxjdidjasdasdasdszczx'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Ice Brain, Lavender Updo, Roblox Girl Hair, Red Roblox Cap, Jade Necklace, ZZZ Headband Zara Larsson, Junkbot Hat, Pal Hair, Brown Hair!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Smile", function()
+    
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/dsfndsfdosijfejufuwe90fs90dfhdsoifjdsofjoiejfeojfw90f09sdjfhdsifdskvcxnvkjgjdsgsgjesjt9w0utr289ur892893475895usdifghsiadf'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Lavender Updo, Red Roblox Cap, Robox, Roblox Girl Hair, Chestnut Bun, Pal Hair, Brown Hair, Blonde Spiked Hair!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("RB Neptune V", function()
+    
+loadstring(game:HttpGet(('https://pastebin.com/raw/K959c0wU'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Russo's Sword of Truth!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Nullioneer", function()
+    
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Nullion(free%20hats).lua'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Red Roblox Cap, Russia Fedora, Roblox Girl Hair, Chestnut Bun, Lavender Updo, Pal Hair, Brown Hair!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("R6 Clone", function()
+    
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20R6%20Clone.lua'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Robox, Lavender Updo, Brown Hair, Chestnut Bun, Roblox Girl Hair, Pal Hair, Red Roblox Cap!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+xbnt:Button("Vereus", function()
+    
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/sjfas9djau9dhasuhduidhweuida'),true))()
+	local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : Vans Black Umbrella, Nike Shoebox!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+local ok = s:Section("Animations.")
+
+ok:Button("Neko", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/shidemuri/coffeeware/main/nekov5.lua'))()
+end)
+
+ok:Button("Rush", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/ding%20dong%20rushy%20rush%20rush"))()
+end)
+
+ok:Button("Grandmaster", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/lol"))
+end)
+
+ok:Button("Xester", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Xester%20Convert.lua"))()
+end)
+
+ok:Button("Banisher", function()
+	loadstring(game:HttpGet("https://cdn.discordapp.com/attachments/1016359889246879802/1045009620579668058/Protected.lua"))()
+end)
+
+ok:Button("Swat Banisher", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/real", true))()
+end)
+
+ok:Button("Krump", function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/gWXqKFZ8", true))()
+end)
+
+ok:Button("California Girls", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(2).lua", true))()
+end)
+
+ok:Button("Nulioneer", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(6).lua", true))()
+end)
+
+ok:Button("Master Chief", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(7).lua", true))()
+end)
+
+ok:Button("420", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20420%20Net%20Needed%20(Melon).txt", true))()
+end)
+
+ok:Button("Creep", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Creep%20Net%20Needed%20(Melon).txt", true))()
+end)
+
+ok:Button("Ghost", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Ghost%20Net%20Needed%20(Melon).txt", true))()
+end)
+
+ok:Button("Gale Fighter", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Gale%20Fighter.txt", true))()
+end)
+
+ok:Button("Insanity Powers", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Insanity%20Powers%20Net%20Needed%20-%20(Melon).txt", true))()
+end)
+
+ok:Button("Killbot", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Killbot%20Net%20Needed%20(Melon).txt", true))()
+end)
+
+ok:Button("Rickroll", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Rickroll%20Net%20Needed%20(Melon).txt", true))()
+end)
+
+ok:Button("Chips", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE_Chips_R6.txt", true))()
+end)
+
+ok:Button("Memeus", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Memeus%202.5%20Convert.lua", true))()
+end)
+
+ok:Button("Undertale Sans", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Undertale%20Sans%20Convert.lua", true))()
+end)
+
+ok:Button("Meme Animations", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Meme%20Animations%20Convert.lua", true))()
+end)
+
+ok:Button("Chill", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Chill%20Convert.lua", true))()
+end)
+
+ok:Button("Hacker X", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Chill%20Convert.lua", true))()
+end)
+
+ok:Button("Star Glitcher", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3IXe080"))()
+end)
+
+ok:Button("Dark Magic", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3tGWxu2"))()
+end)
+
+ok:Button("Excalibur", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3tB2Qzu"))()
+end)
+
+ok:Button("Verlex", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/361hjws"))()
+end)
+
+ok:Button("Rainbow Banisher", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3sRGZEM"))()
+end)
+
+ok:Button("Sutart", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3KtWzft"))()
+end)
+
+ok:Button("Sniper", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3sRLBdU"))()
+end)
+
+ok:Button("Monster", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3sRLBdU"))()
+end)
+
+ok:Button("Sakura Blade", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3pLoShL"))()
+end)
+
+ok:Button("Billie Ellish", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3HRJ2wK"))()
+end)
+
+local trole = e:Section("Scripts that you can't find anywhere.")
+
+monkey:Button("Unverified's Admin - Console Edition", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/harmful%20balls",true))()
+end)
+
+trole:Button("Unverified's Ban Hammer", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/RKY5fTXh", true))()
+end)
+
+trole:Button("Unverified's Edited Excalibur", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/9nu7Zeh8", true))()
+end)
+
+trole:Button("Dev Uzi", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/X2n20xqM", true))()
+end)
+
+trole:Button("Proton Admin Private", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/4MVYcqkc", true))()
+end)
+
+trole:Button("Grab Knife V1", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/4MVYcqkc", true))()
+end)
+
+trole:Button("Grab Knife V2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/Grab%20Knife%20V2.lua", true))()
+end)
+
+trole:Button("AWP", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PhoenixAceVFX/Roblox-Scripts/master/AWP.lua", true))()
+end)
+
+trole:Button("9/11 Airplane", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/very%20halal%20script", true))()
+end)
+
+trole:Button("Fake Unverified's Whitelist System", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/random%20funny%20script", true))()
+end)
+
+trole:Button("John Doe Blaster", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3hKeXER"))()
+end)
+
+trole:Button("Uncle Parlo the Redneck", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3tCGkpF"))()
+end)
+
+trole:Button("John Doe", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3HWSAX7"))()
+end)
+
+trole:Button("Baldi", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3Kpj1GH"))()
+end)
+
+trole:Button("Star Platinum Over Heaven", function()
+			loadstring(game:HttpGetAsync("https://bit.ly/3Cpvrvr"))()
+end)
+
+trole:Button("Nebula Star Glitcher", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Nebula%20Star%20Glitcher%20Convert.lua"))()
+end)
+
+trole:Button("Magic Unknown", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/CONVERTWARE/main/convertware/Scripts/Converted/Magic%20Unknown%20Convert.lua"))()
+end)
+
+trole:Button("Rainbow King", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/RainbowKing.txt"))()
+end)
+
+trole:Button("Revenge Claws", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FERevengeClawsMelonNetlessNeeded.txt"))()
+end)
+
+trole:Button("Infinity Gaunlet", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FEGauntletMelonNetlessNeeded.txt"))()
+end)
+
+trole:Button("Dead Eye", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FEDeadEyeByMelonNetlessNeeded.txt"))()
+end)
+
+trole:Button("Rocket Ride", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Rocket%20Ride%20Net%20Needed%20-%20(Melon).txt"))()
+end)
+
+trole:Button("Demon", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FEDemonMelonNetlessNeeded.txt"))()
+end)
+
+trole:Button("Nebula Angel", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Nebula%20Angel%20Net%20Needed%20-%20(Melon).txt"))()
+end)
+
+trole:Button("Madiik Bubblebike", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Madiik%20BubbleBike%20Anims%20Net%20Needed%20-%20(Melon).txt"))()
+end)
+
+trole:Button("Fruit Gun", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Fruit%20Gun%20Animations%20Net%20Needed%20(Melon).txt"))()
+end)
+
+trole:Button("Cyborg", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Cyborg%20Net%20Needed%20(Melon).txt"))()
+end)
+
+trole:Button("Anti Skid", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/this-is-so-bruh/main/FE%20Anti%20Furry%20Net%20Needed%20(Melon).txt"))()
+end)
+
+trole:Button("Glock-18", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Gun.txt"))()
+end)
+
+trole:Button("Pipboy Armor", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected.lua_1.txt"))()
+end)
+
+trole:Button("Zenith Battle Rifle", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected.lua_1.txt"))()
+end)
+
+trole:Button("Exotic Lightning Cannon", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/exotic%20lightning%20cannon"))()
+end)
+
+trole:Button("Assasin Doom Slayer", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(4).lua"))()
+end)
+
+trole:Button("Sledgehammer", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(3).lua"))()
+end)
+
+trole:Button("Holiday Feels", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/holiday%20feeling"))()
+end)
+
+trole:Button("Kick All - Work At A Pizza Place", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hydro4Music/Others/main/WorkAtPizzaPlaceKickAll"))()
+end)
+
+trole:Button("Cook Room Destroyer - Work At A Pizza Place", function()
+    -- credits to Arsenicen#5961
+-- discord server: discord.gg/nsdBV6EGHz
+
+_G.cookroomfucker = true -- change to false and re execute if you wanna turn it off 
+local lp = game:GetService("Players").LocalPlayer
+local remote
+local ffc = game.FindFirstChild
+
+do
+    local reg = (getreg or debug.getregistry)()
+	for i=1,#reg do
+		local f = reg[i]
+		if type(f)=="table" and rawget(f,"FireServer") and rawget(f,"BindEvents") then
+			remote = f
+		end
+	end
+end
+
+function moveThing(bmd, location)
+    remote:FireServer("UpdateProperty", bmd, "CFrame", location)
+    wait()
+    remote:FireServer("SquishDough", bmd)
+end
+
+-- cook room fucker main script
+
+for i,v in pairs(workspace.AllSupplyBoxes:GetChildren()) do
+    v.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+wait()
+
+
+spawn(function()
+    while _G.cookroomfucker and wait() do
+        spawn(function()
+            for i,v in pairs(workspace.AllDough:GetChildren()) do
+                moveThing(v, CFrame.new(Random.new():NextNumber(22.6,51.6),Random.new():NextNumber(3.6,14.6),Random.new():NextNumber(55.5,70.5)))
+            end
+        end)
+        spawn(function()
+            for i,v in pairs(workspace.AllMountainDew:GetChildren()) do
+                moveThing(v, CFrame.new(Random.new():NextNumber(22.6,51.6),Random.new():NextNumber(3.6,14.6),Random.new():NextNumber(55.5,70.5)))
+            end
+        end)
+        spawn(function()
+            for i,v in pairs(workspace.BoxingRoom:GetChildren()) do
+                moveThing(v, CFrame.new(Random.new():NextNumber(22.6,51.6),Random.new():NextNumber(3.6,14.6),Random.new():NextNumber(55.5,70.5)))
+            end
+        end)
+        spawn(function()
+            for i,v in pairs(workspace.AllBox:GetChildren()) do
+                moveThing(v, CFrame.new(Random.new():NextNumber(22.6,51.6),Random.new():NextNumber(3.6,14.6),Random.new():NextNumber(55.5,70.5)))
+            end
+        end)
+        spawn(function()
+            for i,v in pairs(workspace.AllSupplyBoxes:GetChildren()) do
+                moveThing(v, CFrame.new(Random.new():NextNumber(22.6,51.6),Random.new():NextNumber(3.6,14.6),Random.new():NextNumber(55.5,70.5)))
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while _G.cookroomfucker and wait() do
+        for i,v in pairs(game:GetService("Workspace").Ovens:GetChildren()) do
+            v.Door.ClickDetector.Detector:FireServer()
+            wait(.15)
+        end
+    end
+end)
+end)
+
+trole:Button("Asriel Dreemurr", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/yeah", true))()
+end)
+
+trole:Button("Omega Flowey", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/trolling/main/Protected%20(1).lua"))()
+end)
+
+trole:Button("Neurotic", function()
+    loadstring(game:HttpGet("https://cdn.discordapp.com/attachments/922823751127683082/1004264794733424660/Protected.lua"))()
+end)
+
+local nigger = h:Section("Funny script hubs,mostly paid or private.")
+
+nigger:Button("Pendulum Hub Private", function()
+	loadstring(game:HttpGet("https://github.com/SupremeIsKewl/trolling/blob/main/SPOILER_Premium_DO_NOT_SHARE_WITH_ANYONE_2-1.lua.txt", true))()
+end)
+
+nigger:Button("Hat Hub", function()
+	loadstring(game:HttpGet("https://textbin.net/raw/rvohv1nvuf"))()
+end)
+
+nigger:Button("1x1x1x1x1 Hub", function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/CYye6uA4"))()
+end)
+
+nigger:Button("Nightmare Hub", function()
+	loadstring(game:HttpGet(('https://pastefy.ga/lrjtanrp/raw'),true))()
+    local Notify = AkaliNotif.Notify;
+
+wait(1);
+
+Notify({
+Description = "Wear those items : https://pastebin.com/raw/aX8J7W82!";
+Title = "Gamesense's Notification";
+Duration = 5;
+});
+end)
+
+nigger:Button("Typical Hub", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/useless-stuff-lol/main/typical%20skidded%20hub%20xd"))()
+end)
+
+nigger:Button("Kzs Hub", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/useless-stuff-lol/main/kzs%20hub"))()
+end)
+
+nigger:Button("Fun Hub", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SupremeIsKewl/useless-stuff-lol/main/Fun%20Hub"))()
+end)
+
+nigger:Button("T0PK3K 5.0 Remake", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/o5u3/T0PK3K-REMAKE/main/Script"))()
+end)
+
+nigger:Button("c00lgui FE Edition", function()
+	loadstring(game:GetObjects("rbxassetid://8127297852")[1].Source)()
+end)
+
+monkey:Button("Project Ligma Remake", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/6ypMfGeD"))()
+end)
+
+local innit = c:Section("Developers")
+innit:Label("UI : Unverified and Moon")
+innit:Label("Developers : Unverified,Digitality,Outmoon,Melon,Moon,Mizt and Emper")
+innit:Label("Scripts : Unverified,Outmoon,Digitality and Melon")
+innit:Label("Netless : V1,V2 by Melon, V3 by Mizt")
+innit:Label("Reanimations : Mizt and Emper")
+innit:Label("FE Bypasses : Outmoon,Digitality,Emper and Unverified")
+innit:Label("Anticheat Bypasses : Digitality and Unverified")
+innit:Label("Disablers : Unverified")
+innit:Label("Hats Scripts : Outmoon,Harkinian,Moon and Mizt")
+innit:Label("Animations Scripts : Unverified and Melon")
+innit:Label("Exclusive Scripts : Unverified,Melon,Moon and Mizt")
+
+
+
+
