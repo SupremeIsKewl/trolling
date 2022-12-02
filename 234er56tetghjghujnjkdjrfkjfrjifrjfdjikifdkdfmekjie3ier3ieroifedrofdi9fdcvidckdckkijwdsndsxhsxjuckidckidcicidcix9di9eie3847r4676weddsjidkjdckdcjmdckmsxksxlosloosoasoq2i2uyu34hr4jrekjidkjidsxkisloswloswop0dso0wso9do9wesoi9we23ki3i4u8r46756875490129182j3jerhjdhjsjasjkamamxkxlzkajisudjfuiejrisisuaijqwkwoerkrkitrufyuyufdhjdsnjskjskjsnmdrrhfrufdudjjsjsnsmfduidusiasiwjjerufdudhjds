@@ -10,19 +10,7 @@ local Notify = AkaliNotif.Notify;
 wait(1);
 
 Notify({
-Description = "Hello Gamesense user, we thank you for your login information. Thanks to Unverified Admin$tration 1.0.0, have fun using Gamesense!";
-Title = "Gamesense's Notification";
-Duration = 5;
-});
-
-Notify({
-Description = "#IpLogged 240.108.149.167!";
-Title = "Gamesense's Notification";
-Duration = 5;
-});
-
-Notify({
-Description = "Posting your doxbin right now!";
+Description = "Heyy, welcome to gamesense.lua. This hub was made for fun purposes and was not intended to be used for bad things(unlike harkinian scripts)";
 Title = "Gamesense's Notification";
 Duration = 5;
 });
